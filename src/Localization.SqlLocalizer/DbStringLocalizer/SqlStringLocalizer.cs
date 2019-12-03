@@ -43,8 +43,10 @@ namespace Localization.SqlLocalizer.DbStringLocalizer
 
         public IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
         {
-            throw new NotImplementedException();
-            
+            foreach (var item in _localizations)
+            {
+                yield return this[item.Key];
+            }            
         }
 
         public IStringLocalizer WithCulture(CultureInfo culture)
